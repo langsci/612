@@ -1,0 +1,170 @@
+{\textbackslash}myuline \myuline{abc(jgf)}
+
+{\textbackslash}syntRel \syntRel{ABC}
+
+{\textbackslash}syntRelLeft \syntRelLeft{ABC}
+
+
+{\textbackslash}syntDname \syntDname{abc}
+
+
+{\textbackslash}lexRel \lexRel{ABC}
+
+{\textbackslash}lexRelIncoming \lexRelIncoming{ABC}
+
+
+
+{\textbackslash}lexRel \lexRel{ABCDEFHIJKL}
+
+{\textbackslash}lexRelIncoming \lexRelIncoming{ABCDEFHIJKL}
+
+
+{\textbackslash}lexRel \lexRel{UHU}
+
+{\textbackslash}lexRelIncoming \lexRelIncoming{UHU}
+
+{\textbackslash}lang \lang
+
+{\textbackslash}palat at{\palat}a UT{\palat}U
+
+{\textbackslash}palati \textit{at{\palati}a} \textit{UT{\palati}U}
+
+{\textbackslash}suffixsplit xxx\suffixsplit{}ooo
+
+{\textbackslash}senseex \senseex{abc}
+
+
+{\textbackslash}sensenum \sensenum{abc}
+
+
+{\textbackslash}sensenumonly \sensenumonly{abc}
+
+{\textbackslash}voc \voc{abc}{de}{fg}
+
+
+{\textbackslash}vocalt \vocalt{abc}{de}{fg}
+
+
+{\textbackslash}idiom \idiom{abc}
+
+{\textbackslash}sigmaF \sigmaF
+
+
+{\textbackslash}sigmaFOne \sigmaFOne
+
+
+{\textbackslash}sigmaFTwo \sigmaFTwo
+
+
+{\textbackslash}lf \lf{abc}
+
+
+{\textbackslash}lfappl \lf{abc}{def}
+
+
+{\textbackslash}lfgp \lfgp{abc}
+
+{\textbackslash}lfconstr \lfconstr{abc}
+
+{\textbackslash}uslabel \uslabel{abc}
+
+
+{\textbackslash}exaccept \exaccept{abc}
+
+
+{\textbackslash}notion \notion{abc}
+
+
+{\textbackslash}weakcomp \weakcomp{abc}
+
+
+{\textbackslash}tld \tld
+
+{\textbackslash}tlds  \tlds
+
+
+{\textbackslash}constrbar  x{\constrbar}x
+
+{\textbackslash}fused  x{\fused}x
+
+
+{\textbackslash}slashs  x{\slashs}x
+
+
+{\textbackslash}SpecDiff  \SpecDiff
+
+
+
+{\textbackslash}boulet   \boulet
+
+
+{\textbackslash}lu   \lu{abc}{de}{fg}{1}
+
+{\textbackslash}wf \wf{abc}{de}{fg}{1}
+
+
+
+\isi{test} is for nouns\is{NP}
+
+\ili{XXXGuarani}
+
+Caesar\il{Latin}
+
+\name{John}{Smith}
+
+\begin{notiondefinition}{vocable}
+
+A \textbf{vocable} is a set of lexical units such that \vspace{3pt} \\*
+\setlength{\tabcolsep}{.5pt}\begin{tabular}{ p{0.2cm} >{\raggedright\arraybackslash}p{11.5cm} }
+\SpecDiff & all of them share a common signifier\index[notion]{signifier}; \\
+\SpecDiff & their signifieds\index[notion]{signified} share important enough common semantic components.
+\end{tabular}\vspace{3pt}\newline
+{\small\textsf{Examples.} The vocable \textsc{picture}\tsub{(N)} contains the lexemes \lu{picture}{(N)}{}{I.1} `image', \lu{picture}{(N)}{}{I.2} `movie' and \lu{picture}{(N)}{}{II} `mental image'; the vocable \idiom{\textsc{come a cropper}} contains the idioms \idiom{\textsc{come a cropper}}\sensenum{I} `have a bad fall' and \idiom{\textsc{come a cropper}}\sensenum{II} `fail badly -- \idiom{as if} \idiom{coming a cropper}\sensenum{I}'.}
+
+\end{notiondefinition}
+
+\begin{historicalremark}
+
+The previous presentations of LFs -- for instance, Mel'\v{c}uk et al. (\citedate[125--152]{Melcuketal1995-e}) and Mel'\v{c}uk et al. (\citedate[75--81]{MelcukEtAl1999}) -- did not introduce the LF \lf{Non} explicitly. In these publications the LF \lf{Non} (as \lf{Non} or \lf{non}) was simply smuggled into complex LF formulas.
+
+\end{historicalremark}
+
+\begin{furtherreading}
+On morphological\index[notion]{morphology} notions (wordform, inflection, etc.), see \textcite{Melcuk2006b}; on phraseology\index[notion]{phraseology} and types of phrasemes\index[notion]{phraseme}, see \textcite{Melcuk2023a}.
+\end{furtherreading}
+
+\begin{figure}
+\fittable{
+$\mathfrak{G}$:
+\begin{tikzpicture}
+  \node(n1)[circle,draw]{$n_1$};
+  \node(n2)[circle,draw,below=of n1]{$n_2$};
+  \node(n3)[circle,draw,right=of n1]{$n_3$};
+  \node(n4)[circle,draw,right=of n2]{$n_4$};
+  \draw(n1)--(n2);
+  \draw(n1)--(n3);
+  \draw(n2)--(n3);
+  \draw(n3)--(n4);
+\end{tikzpicture}
+\begin{tabular}[b]{lll}
+   $\mathfrak{G} = \{\mathfrak{N} ,\mathfrak{A}\}$\\
+  $\mathfrak{N}=\{n_1,n_2,n_3,n_4\}$\\
+  $\mathfrak{A}=\{\{n_1,n_2\},\{n_1,n_3\},\{n_2,n_3\},\{n_3,n_4\}\}$
+\end{tabular}
+\begin{tabular}[b]{c|c:c:c:c}
+      $\mathfrak{G}$ & $n_1$ & $n_2$ & $n_3$ & $n_4$ \\
+\hline
+$n_1$ & 0 & 1 & 1 & 0 \\
+\hdashline
+$n_2$ & 1 & 0 & 1 & 0 \\
+\hdashline
+$n_3$ & 1 & 1 & 0 & 1 \\
+\hdashline
+$n_4$ & 0 & 0 & 1 & 0 \\
+\end{tabular}
+}
+\end{figure}
+
+x\syntRel{obl-obj}{}x     x\syntRelLeft{obl-obj}{}x
+
+x\syntRel{posssess}{}x     x\syntRelLeft{posssess}{}x

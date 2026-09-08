@@ -1,0 +1,46 @@
+\documentclass[output=book,
+% colorlinks,citecolor=brown,
+% showindex
+%  draft,
+%draftmode, 
+		  ]{langscibook}
+
+\input{localmetadata.tex}
+\input{localpackages.tex}
+% \input{localhyphenation.tex}
+\addbibresource{localbibliography.bib}
+
+
+\newindex{notion}{ndx}{nnd}{Index of notions}
+\newindex{lf}{fdx}{fnd}{Index of lexical functions}
+% \includeonly{chapters/09-Appendix1}
+\begin{document}
+\input{localcommands.tex}
+%\input{commandtests.tex}
+
+
+
+
+% \index[notion]{lexical entry}
+
+\maketitle
+
+\frontmatter
+\currentpdfbookmark{Contents}{name} % adds a PDF bookmark
+{\sloppy\tableofcontents}
+
+\mainmatter
+\include{chapters/01-SymbAbbrev}
+\include{chapters/02-LFlist}
+\include{3-Forewords}
+\include{chapters/03-Introduction}
+\include{chapters/04-PreliminaryNotions}
+\include{chapters/05-NotionLF}
+    \include{chapters/06-ParaLF}
+\include{chapters/07-SyntLF}
+\include{chapters/08-LN}
+\include{chapters/09-Appendix1}
+
+
+\input{backmatter.tex}
+\end{document}

@@ -1,0 +1,411 @@
+
+% \renewcommand{\index}[2][]{}
+% \renewcommand{\index}[2][]{{\is{#2}}}
+
+% From LSP
+
+\newenvironment{furtherreading}{
+    \begin{tblsframedsymbol}{Further reading}{book}
+}{
+    \end{tblsframedsymbol}
+\vspace{6pt}}
+
+\newenvironment{historicalremark}{
+    \begin{tblsframedsymbol}{Historical remark}{history}
+}{
+    \end{tblsframedsymbol}
+\vspace{6pt}}
+
+\newenvironment{importantnotion}[1]{
+    \begin{tblsframedsymbol}{#1}{report}
+}{
+    \end{tblsframedsymbol}
+\vspace{6pt}}
+
+\newenvironment{notiondefinition}[1]{
+    \begin{tblsframedsymbol}{Notion definition: #1}{alarm}
+}{
+    \end{tblsframedsymbol}
+\vspace{6pt}}
+
+\newenvironment{soundbox}[1]{
+    \begin{tblsframedsymbol}{#1}{alarm}
+}{
+    \end{tblsframedsymbol}
+\vspace{6pt}}
+\newenvironment{soundboxnotitle}{
+    \begin{tblsframedsymbol}{}{alarm}
+\vspace{6pt}}{
+    \end{tblsframedsymbol}
+\vspace{6pt}}
+
+\newenvironment{orientationbox}{
+    \begin{tblsframedsymbol}{}{explore}
+\vspace{6pt}}{
+    \end{tblsframedsymbol}
+\vspace{6pt}}
+\newenvironment{orientationboxtitle}[1]{
+    \begin{tblsframedsymbol}{#1}{explore}
+}{
+    \end{tblsframedsymbol}
+\vspace{6pt}}
+
+% File    : 'apol-memo-LF.sty'
+% Author  : Alain Polguère
+% Version : 2.1
+% Date    : 1 March 2024
+% Content : Style definitions used for short memos (adapted for paper on LF in English)
+
+% Package pour l'IPA et pour la définition de \idiom
+% \usepackage[T1]{tipa}
+% Par exemple : \textipa{/b2t/} pour angl. "but".
+% CE PACKAGE DOIT ÊTRE CHARGÉ AVANT linguex !!!!!!!
+
+% ------------------------------------------------------
+% Pour les exemples linguistiques :
+
+% Referring to examples without parentheses. Got this from:
+% https://tex.stackexchange.com/questions/488094/referring-to-selected-linguex-examples-without-parentheses
+% ``Since TeX has no way of knowing if you're inside parentheses or not, you need a new command for a reference inside parentheses which will "remove" the extra parentheses. We'll call this command \pref which is just like \ref but will not have parentheses around the number. But since it's easier to add things than remove them, we'll redefine the \ExNoLBr and \ExNoRBr to add the parentheses conditionally. Since labels are written to the .aux file, we need to protect these commands from being expanded there so that the conditional can do its magic when the reference is resolved.''
+% \newif\ifparens\parensfalse
+% \renewcommand{\theExNo}{\protect\theExLBr\arabic{ExNo}\protect\theExRBr}
+% \renewcommand\theExLBr{\ifparens\else(\fi}
+% \renewcommand\theExRBr{\ifparens\else)\fi}
+% \newcommand\nopref[1]{{\parenstrue\ref{#1}}}
+
+%% ------------------------------------------------------
+
+% \renewcommand{\ULdepth}{1.8pt}
+% \contourlength{0.8pt}
+
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+\renewcommand{\myuline}[1]{\uline{#1}}
+
+
+
+% Alain's remarks on the text. Will appear in red.
+% \newcommand{\alain}[1]{\textcolor{red}{#1}}
+
+% To connect two word-elements of a single wordform (at_last)
+% with a grey underscore
+\newcommand{\onewdf}{{\color{lightgray}\_}}
+
+%To type superscripts and subscripts in non-math mode
+%\newcommand{\superscript}[1]{\ensuremath{^\textrm{#1}}}
+%\newcommand{\subscript}[1]{\ensuremath{_\textrm{#1}}}
+% Use rather the following package, with \textsubscript
+% and \texsuperscript.
+
+% Subscripts and superscripts
+\newcommand{\tsub}[1]{\textsubscript{#1}}
+\newcommand{\tsup}[1]{\textsuperscript{#1}}
+
+% Syntactic relations in arrows
+\newcommand{\syntRel}[1]
+{\ensuremath{-}{\relsize{-1.5}\textbf{\textsf{#1\strut}}}\ensuremath{\rightarrow}}
+%{\thinspace\ensuremath{-}{\footnotesize\textbf{\textsf{#1}}}\ensuremath{\rightarrow}\thinspace}
+
+\renewcommand{\syntRel}[1]{--\textbf{\smaller\textsf{#1\strut}}\textrightarrow}
+
+
+\renewcommand{\syntRel}[1]{%
+\tikz[baseline=(M.base)]{
+    \node[inner sep=0pt,outer sep=0.2pt] (M) {\relsize{-.9}{\textbf{\textsf{#1\strut}}}};
+    % left segment
+    \draw[thick]
+      ($(M.west)+(-.5em,0)$) -- ($(M.west)+(0,0)$);
+    % right segment with arrow tip
+    \draw[thick,-latex]
+      ($(M.east)+(0,0)$) -- ($(M.east)+(.95em,0)$);
+  }%
+}
+
+\newcommand{\syntRelLeft}[1]
+{\ensuremath{\leftarrow}{\relsize{-1.5}\textbf{\textsf{#1\strut}}}\ensuremath{-}}
+%{\thinspace\ensuremath{\leftarrow}{\footnotesize\textbf{\textsf{#1}}}\thinspace\ensuremath{-}}
+
+
+\renewcommand{\syntRelLeft}[1]{{\textleftarrow}{\smaller\textbf{\textsf{#1\strut}}}--}
+
+\renewcommand{\syntRelLeft}[1]{%
+\tikz[baseline=(M.base)]{
+  \node[inner sep=0pt,outer sep=0.2pt] (M) {\relsize{-.9}{\textbf{\textsf{#1\strut}}}};
+
+  % left segment with arrow tip
+  \draw[thick,-latex]
+    ($(M.west)+(0,0)$) -- ($(M.west)+(-.95em,0)$);
+
+  % right segment
+  \draw[thick]
+    ($(M.east)+(0,0)$) -- ($(M.east)+(.5em,0)$);
+}%
+}
+% When there is a wordform between the
+% governor and the dependent
+% Ex. Sorry, <-APPEND-[I]- am late
+\newcommand{\syntRelChunk}[1]{%
+\tikz[baseline=(M.base)]{
+  \node[inner sep=0pt,outer sep=0.2pt] (M) {#1\strut};
+
+  % right segment
+  \draw[thick]
+    ($(M.east)+(0,0)$) -- ($(M.east)+(.5em,0)$);
+}%
+}
+
+% Name of syntactic dependencies in text
+\newcommand{\syntDname}[1]{%
+  \texorpdfstring{%
+    {\relsize{-.9}\textbf{\textsf{#1}}}}{#1}}
+
+% Lexical derivation arrows
+% \newcommand{\lexDer}[1]{\thinspace\ensuremath{=}{\relsize{-1.5}\raisebox{.5pt}{#1}}\ensuremath{\Rightarrow}\thinspace} %appears not be used
+
+% Lexical relation (in the most general sense)
+\newcommand{\lexRel}[1]{\thinspace{\raisebox{.5pt}{\ensuremath{\shortmid}}}{\ensuremath{\mkern-4mu-}}{\relsize{-1.5}\raisebox{.5pt}{#1}}\ensuremath{\rightarrow}\thinspace}
+%{\thinspace\ensuremath{\leftarrow}{\footnotesize\textbf{\textsf{#1}}}\thinspace\ensuremath{-}}
+
+
+\renewcommand{\lexRel}[1]{\vdash\smaller#1\textrightarrow}
+
+
+\renewcommand{\lexRel}[1]{%
+\tikz[baseline=(M.base)]{
+    \node[inner sep=0pt,outer sep=0.2pt] (M) {#1};
+    % left segment
+    \draw[thick]
+      ($(M.west)+(-.5em,0)$) -- ($(M.west)+(0,0)$);
+    % vertical bar
+    \draw[thick]
+      ($(M.west)+(-.5em,0.6ex)$) -- ($(M.west)+(-.5em,-0.6ex)$);
+    % right segment with arrow tip
+    \draw[thick,-latex]
+      ($(M.east)+(0,0)$) -- ($(M.east)+(.95em,0)$);
+  }%
+}
+
+
+
+
+% Incoming lexical relation
+\newcommand{\lexRelIncoming}[1]
+{\ensuremath{\thinspace\leftarrow}{\relsize{-1.5}\raisebox{.5pt}{#1}}\thinspace{\ensuremath{-\mkern-4mu}}{\raisebox{.5pt}{\ensuremath{\shortmid}}}\thinspace}
+
+
+\renewcommand{\lexRelIncoming}[1]{\textleftarrow{\smaller#1}\dashv}
+
+\renewcommand{\lexRelIncoming}[1]{%
+\tikz[baseline=(M.base)]{
+  \node[inner sep=0pt,outer sep=0.2pt] (M) {#1};
+
+  % left segment with arrow tip
+  \draw[thick,-latex]
+    ($(M.west)+(0,0)$) -- ($(M.west)+(-.95em,0)$);
+
+  % right segment
+  \draw[thick]
+    ($(M.east)+(0,0)$) -- ($(M.east)+(.5em,0)$);
+
+  % vertical bar
+  \draw[thick]
+    ($(M.east)+(.5em,0.6ex)$) -- ($(M.east)+(.5em,-0.6ex)$);
+}%
+}
+
+
+%\newcommand{\lexRel}[1]
+%{\thinspace{\scriptsize\ensuremath{\vdash}}{\relsize{-1.5}\raisebox{.5pt}{#1}}\ensuremath{\rightarrow}\thinspace}
+
+% ---------------------------------------------------------------------
+% ----- Languages
+
+% Symbol which denotes a given language "L"
+\newcommand{\lang}{{\boldmath $\mathcal{L}$}\xspace}
+
+% ----- Russian ----
+
+% Russian prime character for palatalization
+\newcommand{\palat}{$^\prime$}
+\renewcommand{\palat}{ʹ} %Unicode 02b9
+% To be used when the text is in italics
+\newcommand{\palati}{\kern 0.16667em$^\prime$}
+\renewcommand{\palati}{\textit{ʹ}}%Unicode 02b9
+% Sign in Russian wordform to separate the base from
+% a suffix, with proper spacing (base in italics and
+% | in Roman)
+\newcommand{\suffixsplit}{{\upshape\kern0.1em{\color{gray}|}}}
+
+% Old definition:
+%\makeatletter
+%\DeclareTextCommand{\textprime}{\encodingdefault}{%
+%  \mbox{$\m@th'\kern-\scriptspace$}% 
+%}
+%\makeatother
+
+% -----
+% ---------------------------------------------------------------------
+
+% For syntactic dependencies above text [Example: François Lareau]
+%\begin{dependency}[theme=simple,segmented edge]
+%	\begin{deptext}
+%		Ma \& nouvelle \& gardienne \& étudie \& le \& droit \& à \& l \& UdeM \\
+%	\end{deptext}
+%	\deproot{4}{RACINE}
+%	\depedge{3}{1}{dét}
+%	\depedge{3}{2}{mod}
+%	\depedge{4}{3}{suj}
+%	\depedge{4}{6}{dir}
+%	\depedge{6}{5}{dét}
+%	\depedge{4}{7}{obl}
+%	\depedge{7}{9}{cprép}
+%	\depedge{9}{8}{dét}
+%\end{dependency}
+
+% Remarks, notes, warnings, etc.
+\newcommand{\remark}[1]{%
+  {\relsize{.97}#1\enskip}}
+%  {\relsize{1.01}\textsf{#1}\enskip}}
+
+% Examples that illustrate wordsenses
+% Ex. :
+%   The lexical unit {\sc nasty} \exsense{He is a nasty boy.}
+\newcommand{\senseex}[1]{%
+  \texorpdfstring{{\relsize{-1.17}[\textit{#1}]}}{[\textit{#1}]}}
+
+% Indication that a citation comes from the web
+% \newcommand{\webcit}{\quad\scriptsize [Web]} %does not appear to be used
+
+% ----- Numbering of lexical units
+% After the name of the lexical unit (proportionaly reduced
+% and preceded with a thin space)
+\newcommand{\sensenum}[1]{%
+  \texorpdfstring{%
+  {\relsize{-1.17}\thinspace\textbf{\textsf{#1}}}}{#1}}
+% Just by itself (proportionally reduced without extra space)
+\newcommand{\sensenumonly}[1]{%
+  \texorpdfstring{%
+    {\relsize{-1.17}\textbf{\textsf{#1}}}}{#1}}
+
+% ----- Vocables, lexical units and wordforms, with optional numbering
+\newcommand{\voc}[3]{\textsc{#1}\tsub{#2}\tsup{\textbf{\textsf{#3}}}}
+
+\newcommand{\vocalt}[3]{\textsc{#1}$_{\text{\smaller#2}}^{\text{\textbf{\textsf{\smaller#3}}}}$}
+
+\newcommand{\lu}[4]
+  {\textsc{#1}\tsub{#2}\tsup{\textbf{\textsf{#3}}}\sensenum{#4}}
+\newcommand{\wf}[4]
+  {\textit{#1}\tsub{#2}\tsup{\textbf{\textsf{#3}}}\sensenum{#4}}
+
+% For special characters signalling idioms
+\newcommand{\idiom}[1]{\ensuremath{\ulcorner\text{#1}\urcorner}}
+%\newcommand{\idiom}[1]{\textopencorner\verythinspace#1\textcorner}
+% \newcommand{\idiom}[1]{\textopencorner #1\textcorner}
+
+
+% Special formatting for notions that are indexed
+%\newcommand{\notion}[1]{%
+%  \texorpdfstring{%
+%    {\relsize{-.9}\textit{\textsf{#1}}}}{#1}}
+\newcommand{\notion}[1]{%
+  \texorpdfstring{%
+    \textit{\textsf{#1}}}{#1}}
+
+% For examples illustrating vocables' senses
+\newcommand{\exaccept}[1]{{\small [\textit{#1}]}}
+
+\newcommand{\slashs}{\thinspace{}/\thinspace}
+
+% ---------------------------------------------------------------------
+% ----- Lexical Functions
+
+% Special formatting for names of lexical functions
+\newcommand{\lf}[1]{\textsf{#1}}
+
+% LF applications
+\protected\def\verythinspace{%
+  \ifmmode
+    \mskip0.5\thinmuskip
+  \else
+    \ifhmode
+      \kern0.08334em
+    \fi
+  \fi
+}
+\newcommand{\lfappl}[2]{\lf{#1}(\verythinspace #2\verythinspace)}
+
+% For fusion symbol
+\newcommand{\fused}{$/$\kern-0.34em$/$\thinspace}
+
+% Government pattern of lexical function values
+\newcommand{\lfgp}[1]{%
+  \texorpdfstring{{\relsize{-1.17}[#1]}}{[#1]}}
+
+% For LF value's constraints
+
+\newcommand{\constrbar}{%
+  {\relsize{1.17}\raisebox{-.5pt}{|}}}
+
+\newcommand{\lfconstr}[1]{%
+  \texorpdfstring{\constrbar{\relsize{-1.17}~#1}}{|~#1}}
+
+% For usage notes
+\newcommand{\uslabel}[1]{%
+  \texorpdfstring{{\relsize{-1.17}\textsf{\textbf{#1}}}}{#1}}
+
+% For semantic content of LF
+\newcommand{\sigmaF}{`\textsigma\tsup{\texttt{f}}'}
+\newcommand{\sigmaFOne}{`$\textrm{\textsigma}_1^\textrm{\texttt{f}}$'}
+\newcommand{\sigmaFTwo}{`$\textrm{\textsigma}_2^\textrm{\texttt{f}}$'}
+
+% -----
+% ---------------------------------------------------------------------
+
+% \newcommand{\tld}{{\relsize{1.2}\raisebox{.3ex}{\textsf{\texttildelow}}}}
+% \newcommand{\tlds}{{\relsize{1.2}\raisebox{.3ex}{\textsf{\texttildelow}}}s}
+%\newcommand{\tld}{ ̰}
+%\newcommand{\tlds}{̰ s}
+% The above replacement won't do. I use the following [APol]
+\newcommand{\tld}{\textasciitilde}
+\newcommand{\tlds}{\textasciitilde s}
+
+% French "vs" (Eng. "vs.")
+\newcommand{\vs}{\textit{vs.\ }}
+
+% To be able to insert biblio references directly into the text, with the \bibentry command
+% see also \nobibliography* right at the beginning of the document below.
+% \usepackage{bibentry}
+
+
+% To enumerate each differintia in a lexicographic definition
+% \newcommand{\SpecDiff}{{\footnotesize \textbullet}}
+\newcommand{\SpecDiff}{{\boulet}}
+% Definition with more indentation of differentiae
+\newcommand{\SpecDiffIndent}{{\footnotesize \hphantom{ii}\textbullet}}
+
+\newcommand{\weakcomp}[1]{
+  {\relsize{1.17}\textbf{(}}\thinspace#1\thinspace{\relsize{1.17}\textbf{)}}}
+
+% Pour introduire notamment chaque différence spécifique dans une
+% définition, par exemple :
+% \textit{X \idiom{donne le sein} à Y}\\*
+% $=$\\*
+% La femme X nourrit le bébé Y,\\*
+% \beginDiffSpec
+% \boulet & de son lait\\
+% \boulet & en faisant téter un de ses seins par Y\\
+% \end{tabular}
+
+% \newcommand{\beginDiffSpec}{\begin{tabular}{p{0.25cm} p{10.5cm}}} %appears unused
+\newcommand{\boulet}{{\footnotesize \textbullet}}
+
+\newcommand{\APolbox}[2]{%
+  \noindent\fbox{%
+  \parbox{\dimexpr%
+  #1-2\fboxsep-2\fboxrule}%
+  {#2}}}
+
+

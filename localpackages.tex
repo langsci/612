@@ -1,0 +1,128 @@
+\usepackage{langsci-optional}
+\usepackage{todonotes}
+
+% \usepackage{pslatex} %Times font
+
+
+% \usepackage[french,american]{babel}
+
+
+% ----- Entering russian text. This makes it possible to have
+% formated cyrillic (sc, it, etc.) no matter which typeface
+% is selected.
+% Cf. https://tex.stackexchange.com/questions/241096/italic-cyrillic-in-times:
+% "There is no Cyrillic Times freely available in the current TeX distributions,
+% so I suggest a different font."
+% \DeclareRobustCommand{\ru}[1]{%
+%   \begingroup\fontfamily{cmr}%
+%   \foreignlanguage{russian}{#1}%
+%   \endgroup
+% }
+\usepackage{langsci-textipa}
+% \usepackage{apol-memo-LF}
+
+% To locally add margin with \begin{addmargin}[<left>]{<right>}
+\usepackage{scrextend}
+
+
+
+\usepackage{multicol}
+
+% For the 'framed' environment -> Boxed paragraphs
+\usepackage{framed}
+
+
+
+% For inside-paragraph quote.
+\usepackage{quoting}
+\quotingsetup{vskip=2pt}
+
+%Background color in table cell
+\usepackage{colortbl}
+
+\usepackage{longtable}
+\renewcommand\LTcaptype{}
+% => longtable won't increase the table counter
+
+\usepackage{hhline}
+
+% For Greek letters in text mode
+\usepackage{textgreek}
+
+
+\usepackage{todonotes}
+\usepackage{epsfig}
+
+
+\usepackage{extarrows} % For ``accented'' arrows.
+
+\usepackage{fancybox} % For the Bdescription environment
+
+
+\RequirePackage{tikz-dependency} % For labeled dependency trees
+
+
+% For including graphics
+% The command to be used is
+%\includegraphics[width=100mm]{<fileName>.jpg/pdf}
+% \usepackage{graphicx}
+%\usepackage[pdftex]{graphicx}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate} %For enumeration in roman, etc.
+
+% \usepackage{fancyhdr}
+
+% \usepackage[usenames,dvipsnames]{xcolor}
+
+% For web adresses
+% The 'hyphens' options allows for proper
+% line segmentation of long urls with hyphens.
+% \usepackage[hyphens]{url}
+
+% For nice fractions. E.g. \nicefrac{1}{2}
+\usepackage{nicefrac}
+
+
+% To format strikethrough text with the \sout command
+\usepackage[normalem]{ulem}
+
+% For nice underline with a homemade function
+% \myuline (https://alexwlchan.net/2017/10/latex-underlines/)
+\usepackage{contour}
+
+
+% To resize font size proportionally in the context text appears with \relsize
+% See package documentation:
+% http://tug.ctan.org/tex-archive/macros/latex/contrib/relsize/relsize-doc.pdf
+% IMPORTANT: All command definitions code calling 'relsize' functions
+% have to be embedded in '\texorpdfstring{<here>}{<bareversion>}'
+% ('fixltx2e' package) in case they will be used in section headers.
+% Otherwise, there will be a conflict with 'hyperref'. See, for instance,
+% the definition of '\sensenum'.
+\usepackage{relsize}
+
+
+\usepackage{linguex}
+\renewcommand{\firstrefdash}{}  %Pour ne pas introduire de tiret après le numéro dans "(1a-b)"
+\AtBeginDocument{\settowidth{\Exlabelwidth}{(1)}}
+
+
+% For special characters such as the straight quote (\textquotesingle)
+\usepackage{textcomp}
+
+
+\usepackage{subscript}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+
+\usepackage{langsci-tbls}
+
+
+\usepackage{arydshln}
+\usepackage{langsci-branding}
