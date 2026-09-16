@@ -2,6 +2,11 @@
 		"title": "Lexical functions",
 		"authors": [{"name": "Igor Mel'čuk"},{"name":" Alain Polguère"}],
 	"license": "CC-BY-4.0",
-	"publishedAt": "2026-07-08T08:01:56.000Z"}
+	"publishedAt": "2026-07-08T08:01:56.000Z"},
+	{"versiontype": "first_edition",
+		"title": "Lexical functions",
+		"authors": [{"name": "Igor Mel'čuk"},{"name":" Alain Polguère"}],
+	"license": "CC-BY-4.0",
+	"publishedAt": "2026-09-08T08:01:56.000Z"}
 	]
 }
