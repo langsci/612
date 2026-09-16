@@ -4,13 +4,15 @@ main.snd:
 	sed -i 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' main.sdx # ordering of references to footnotes
 	sed -i 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' main.adx
 	sed -i 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' main.ldx
-	sed -i 's/.*\(Office\|Team\|Bureau\|Organisation\|Organization\|Embassy\|Association\|Commission\|committee\|government).*//' main.adx
+	sed -i 's/.*\(Office\|Team\|Bureau\|Organisation\|Organization\|Embassy\|Association\|Commission\|committee\|government\|ATILF\|LDOCE\|OCD\|Antidote\).*//' main.adx
 	sed -i 's/\\MakeCapital//' main.adx
-# 	fixindex
+	fixindex
 	makeindex -o main.and main.adx
 # 	grep -o  ", [^0-9, \\]*," main.and
 	makeindex -o main.lnd main.ldx
-	makeindex -o main.snd main.sdx 
+	makeindex -o main.snd main.sdx
+	makeindex -o main.nnd main.ndx
+	makeindex -o main.fnd main.fdx
 	echo "check for doublets in name index"
 # 	grep -o  ", [^0-9 \\}]*," main.and|sed "s/, //" | sed "s/,\$//"
 	xelatex main 
